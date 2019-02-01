@@ -2,8 +2,23 @@
 import sys
 import requests
 from multiprocessing.dummy import Pool
+try:
+	from termcolor import colored, cprint
+except:
+	pass
 
 requests.urllib3.disable_warnings()
+
+banner = colored('''
+ ::::::::   :::::::   :::::::        ::::::::  :::    ::: 
+:+:    :+: :+:   :+: :+:   :+:      :+:    :+: :+:   :+:  
+      +:+  +:+  :+:+ +:+  :+:+      +:+    +:+ +:+  +:+   
+    +#+    +#+ + +:+ +#+ + +:+      +#+    +:+ +#++:++    
+  +#+      +#+#  +#+ +#+#  +#+      +#+    +#+ +#+  +#+   
+ #+#       #+#   #+# #+#   #+#      #+#    #+# #+#   #+#  
+##########  #######   #######        ########  ###    ### 
+''', 'red')
+print banner
 
 try:
     target = [i.strip() for i in open(sys.argv[1], mode='r').readlines()]
